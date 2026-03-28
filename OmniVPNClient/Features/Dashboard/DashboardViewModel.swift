@@ -19,6 +19,9 @@ final class DashboardViewModel: ObservableObject {
     
     private var timer: Timer?
     private var seconds = 0
+    
+    @Published var trafficData: [TrafficData] = []
+    private let maxDataPoints = 20
 
     var statusText: String {
         isConnected ? "Connected" : "Disconnected"
@@ -88,5 +91,39 @@ extension DashboardViewModel {
             let newValue = current + Int.random(in: 5...20)
             self.traffic = "\(newValue) MB"
         }
+    }
+}
+
+// MARK: - Graph Logic
+extension DashboardViewModel {
+    
+    /// Start generating traffic data (simulate real-time updates)
+    func startGraphUpdates() {
+        stopGraphUpdates() // prevent duplicate timers
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
+            guard let self = self else { return }
+            
+            let newPoint = TrafficData(
+                time: Date(),
+                value: Int.random(in: 10...100)
+            )
+            
+            DispatchQueue.main.async {
+                self.trafficData.append(newPoint)
+                
+                // Keep only last N points (sliding window)
+                if self.trafficData.count > self.maxDataPoints {
+                    self.trafficData.removeFirst()
+                }
+            }
+        }
+    }
+    
+    /// Stop updates when VPN disconnects
+    func stopGraphUpdates() {
+        timer?.invalidate()
+        timer = nil
+        trafficData.removeAll()
     }
 }
