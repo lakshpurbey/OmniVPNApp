@@ -10,11 +10,21 @@ import SwiftUI
 struct SidebarView: View {
     
     var body: some View {
-        List {
-            Label("Dashboard", systemImage: "speedometer")
-            Label("Logs", systemImage: "doc.text")
-            Label("Settings", systemImage: "gearshape")
+        NavigationStack {
+            List {
+                NavigationLink(destination: DashboardView()) {
+                    Label("Dashboard", systemImage: "speedometer")
+                }
+                
+                NavigationLink(destination: LogsView()) {
+                    Label("Logs", systemImage: "doc.text")
+                }
+                
+                NavigationLink(destination: SettingsView()) {
+                    Label("Settings", systemImage: "gearshape")
+                }
+            }
+            .navigationTitle("Omni VPN")
         }
-        .navigationTitle("Omni VPN")
     }
 }
