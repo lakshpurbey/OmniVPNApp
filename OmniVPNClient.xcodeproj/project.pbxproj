@@ -6,6 +6,11 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		A3F7910D2F76F962008EBC84 /* .github in Resources */ = {isa = PBXBuildFile; fileRef = A3F7910C2F76F95A008EBC84 /* .github */; };
+		A3F7910F2F76F97A008EBC84 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = A3F7910E2F76F975008EBC84 /* .gitignore */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		A3F7909E2F76F40D008EBC84 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -27,11 +32,26 @@
 		A3F790902F76F40A008EBC84 /* OmniVPNClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OmniVPNClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F7909D2F76F40D008EBC84 /* OmniVPNClientTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniVPNClientTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3F790A72F76F40D008EBC84 /* OmniVPNClientUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OmniVPNClientUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A3F7910C2F76F95A008EBC84 /* .github */ = {isa = PBXFileReference; lastKnownFileType = text; path = .github; sourceTree = "<group>"; };
+		A3F7910E2F76F975008EBC84 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		A3D51AD12F77C78600DCBAA4 /* Exceptions for "OmniVPNClient" folder in "OmniVPNClient" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Domain,
+			);
+			target = A3F7908F2F76F40A008EBC84 /* OmniVPNClient */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		A3F790922F76F40A008EBC84 /* OmniVPNClient */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				A3D51AD12F77C78600DCBAA4 /* Exceptions for "OmniVPNClient" folder in "OmniVPNClient" target */,
+			);
 			path = OmniVPNClient;
 			sourceTree = "<group>";
 		};
@@ -75,6 +95,8 @@
 		A3F790872F76F40A008EBC84 = {
 			isa = PBXGroup;
 			children = (
+				A3F7910E2F76F975008EBC84 /* .gitignore */,
+				A3F7910C2F76F95A008EBC84 /* .github */,
 				A3F790922F76F40A008EBC84 /* OmniVPNClient */,
 				A3F790A02F76F40D008EBC84 /* OmniVPNClientTests */,
 				A3F790AA2F76F40D008EBC84 /* OmniVPNClientUITests */,
@@ -212,6 +234,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A3F7910D2F76F962008EBC84 /* .github in Resources */,
+				A3F7910F2F76F97A008EBC84 /* .gitignore in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
