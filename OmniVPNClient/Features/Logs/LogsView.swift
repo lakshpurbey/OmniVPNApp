@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct LogsView: View {
-    
 
     @StateObject private var store = LogStore.shared
     

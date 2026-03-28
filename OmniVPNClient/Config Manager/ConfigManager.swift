@@ -10,9 +10,27 @@ import Foundation
 
 final class ConfigManager: ObservableObject {
     
+    static let shared = ConfigManager()
+    
     @Published var configs: [String: Any] = [:]
     
+    private init() {}
+    
     func load() {
-        configs = UserDefaults.standard.dictionary(forKey: "com.apple.configuration.managed") ?? [:]
+        let sharedDefaults = UserDefaults(suiteName: "group.com.company.omnivpn")
+        
+        if let dict = sharedDefaults?.dictionary(forKey: "mdm_config") {
+            DispatchQueue.main.async {
+                self.configs = dict
+            }
+        } else {
+            // Demo fallback
+            configs = [
+                "Server": "vpn.company.com",
+                "Port": 443,
+                "Protocol": "IKEv2",
+                "Auto Connect": true
+            ]
+        }
     }
 }
