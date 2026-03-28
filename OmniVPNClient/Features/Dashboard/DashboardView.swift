@@ -57,6 +57,15 @@ struct DashboardView: View {
                 StatCard(title: "Uptime", value: viewModel.uptime)
             }
             
+            VStack(alignment: .leading, spacing: 10) {
+                Text("Traffic Overview")
+                    .font(.headline)
+                TrafficGraphView(data: viewModel.trafficData)
+            }
+            .padding()
+            .background(Color.gray.opacity(0.08))
+            .cornerRadius(12)
+            
             // MARK: Activity Section
             VStack(alignment: .leading, spacing: 10) {
                 Text("Activity")
@@ -72,5 +81,7 @@ struct DashboardView: View {
             Spacer()
         }
         .padding()
+        .onAppear { viewModel.startGraphUpdates() }
+        .onDisappear { viewModel.stopGraphUpdates() }
     }
 }
