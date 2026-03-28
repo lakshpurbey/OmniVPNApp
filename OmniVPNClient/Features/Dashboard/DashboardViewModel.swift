@@ -93,14 +93,11 @@ extension DashboardViewModel {
         }
     }
 }
-
 // MARK: - Graph Logic
 extension DashboardViewModel {
     
     /// Start generating traffic data (simulate real-time updates)
     func startGraphUpdates() {
-        stopGraphUpdates() // prevent duplicate timers
-        
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { [weak self] _ in
             guard let self = self else { return }
             
@@ -124,6 +121,5 @@ extension DashboardViewModel {
     func stopGraphUpdates() {
         timer?.invalidate()
         timer = nil
-        trafficData.removeAll()
     }
 }
